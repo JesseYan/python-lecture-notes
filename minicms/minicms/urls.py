@@ -18,4 +18,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^$', 'news.views.index', name='index'),
+    url(r'^column/(?P<column_slug>[^/]+)/$', 'news.views.column_detail', name='column'),
+    url(r'^news/(?P<article_slug>[^/]+)/$', 'news.views.article_detail', name='article'),
+
 ]

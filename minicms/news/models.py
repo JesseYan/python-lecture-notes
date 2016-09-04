@@ -5,8 +5,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.core.urlresolvers import reverse
 
-# Create your models here.
 
 @python_2_unicode_compatible
 class Column(models.Model):
@@ -21,6 +21,9 @@ class Column(models.Model):
         verbose_name = '栏目'
         verbose_name_plural = '栏目'
         ordering = ['name']  # 按照哪个栏目排序
+
+    def get_absolute_url(self):
+        return reverse('column', args=(self.slug,))
 
 
 @python_2_unicode_compatible
@@ -42,3 +45,6 @@ class Article(models.Model):
     class Meta:
         verbose_name = '教程'
         verbose_name_plural = '教程'
+
+    def get_absolute_url(self):
+        return reverse('article', args=(self.slug,))
