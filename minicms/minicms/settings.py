@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
+# -*- coding: utf-8 -*-
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
@@ -64,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'news.nav_processor.nav_column',
             ],
         },
     },
